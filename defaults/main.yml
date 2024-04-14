@@ -1,0 +1,6 @@
+# repo: jomrr/ansible-role-httpd
+# file: defaults/main.yml
+# desc: Default Apache server configuration
+
+httpd_enabled: true
+httpd_state: started

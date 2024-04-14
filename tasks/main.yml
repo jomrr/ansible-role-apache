@@ -1,0 +1,28 @@
+---
+# repo: jomrr/ansible-role-httpd
+# file: tasks/main.yml
+
+- name: "Include OS Specific Variables"
+  ansible.builtin.include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution | lower }}.yml"
+        - "{{ ansible_os_family | lower }}.yml"
+      paths:
+        - 'vars'
+      skip: true
+
+- name: "Install Packages"
+  become: true
+  ansible.builtin.package:
+    name: "{{ httpd_packages }}"
+    state: present
+
+- name: "Configure httpd service enabled and state"
+  ansible.builtin.service:
+    name: "{{ httpd_service_name }}"
+    enabled: "{{ httpd_enabled }}"
+    state: "{{ httpd_state }}"

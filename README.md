@@ -1,6 +1,6 @@
 # Ansible role apache
 
-![GitHub](https://img.shields.io/github/license/jomrr/ansible-role-apache) ![GitHub last commit](https://img.shields.io/github/last-commit/jomrr/ansible-role-apache) ![GitHub issues](https://img.shields.io/github/issues-raw/jomrr/ansible-role-apache)
+![GitHub](https://img.shields.io/github/license/jomrr/ansible-role-httpd) ![GitHub last commit](https://img.shields.io/github/last-commit/jomrr/ansible-role-httpd) ![GitHub issues](https://img.shields.io/github/issues-raw/jomrr/ansible-role-httpd)
 
 **Ansible role for setting up apache httpd.**
 

@@ -1,0 +1,11 @@
+---
+# repo: jomrr/ansible-role-httpd
+# file: vars/redhat.yml
+
+httpd_packages:
+  - httpd
+
+httpd_service_name: httpd
+
+httpd_user: apache
+httpd_group: apache

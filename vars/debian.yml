@@ -1,0 +1,11 @@
+---
+# repo: jomrr/ansible-role-httpd
+# file: vars/debian.yml
+
+httpd_packages:
+  - apache2
+
+httpd_service_name: apache2
+
+httpd_user: www-data
+httpd_group: www-data

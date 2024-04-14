@@ -1,0 +1,11 @@
+---
+# repo: jomrr/ansible-role-httpd
+# file: vars/suse.yml
+
+httpd_packages:
+  - apache2
+
+httpd_service_name: apache2
+
+httpd_user: wwwrun
+httpd_group: www

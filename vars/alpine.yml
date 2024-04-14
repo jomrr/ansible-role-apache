@@ -1,0 +1,11 @@
+---
+# repo: jomrr/ansible-role-httpd
+# file: vars/alpine.yml
+
+httpd_packages:
+  - apache2
+
+httpd_service_name: apache2
+
+httpd_user: apache
+httpd_group: apache

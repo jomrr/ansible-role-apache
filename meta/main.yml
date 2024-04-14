@@ -1,0 +1,19 @@
+---
+# name: jomrr.apache
+# file: meta/main.yml
+
+galaxy_info:
+  namespace: jomrr
+  role_name: apache
+  author: Jonas Mauer
+  company: none
+  description: Ansible role for setting up apache httpd.
+  license: MIT
+  issue_tracker_url: https://github.com/jomrr/ansible-role-httpd/issues
+  min_ansible_version: "2.15"
+  galaxy_tags:
+    - apache
+    - httpd
+    - proxy
+    - vhost
+    - webserver

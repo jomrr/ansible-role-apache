@@ -1,0 +1,11 @@
+---
+# repo: jomrr/ansible-role-httpd
+# file: vars/archlinux.yml
+
+httpd_packages:
+  - apache
+
+httpd_service_name: httpd
+
+httpd_user: http
+httpd_group: http
