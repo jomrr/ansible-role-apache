@@ -5,6 +5,10 @@
 httpd_packages:
   - httpd
 
+httpd_server_root: /etc/httpd
+httpd_config_file: "{{ httpd_server_root }}/conf/httpd.conf"
+httpd_magic_file: "{{ httpd_server_root }}/conf/magic"
+
 httpd_service_name: httpd
 
 httpd_user: apache

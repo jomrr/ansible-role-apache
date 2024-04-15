@@ -5,6 +5,10 @@
 httpd_packages:
   - apache2
 
+httpd_server_root: /etc/apache2
+httpd_config_file: "{{ httpd_server_root }}/apache2.conf"
+httpd_mime_file: "{{ httpd_server_root }}/mime.types"
+
 httpd_service_name: apache2
 
 httpd_user: www-data

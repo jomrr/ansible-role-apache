@@ -21,8 +21,56 @@
     name: "{{ httpd_packages }}"
     state: present
 
+- name: "Fetch config files to controller tmp dir"
+  ansible.builtin.fetch:
+    src: "{{ httpd_config_file }}"
+    dest: "/tmp/{{ ansible_distribution }}.conf"
+    flat: true
+
+# - name: "Ensure config dirs in /etc are present"
+#   ansible.builtin.file:
+#     path: "{{ httpd_server_root }}/{{ item.dir }}"
+#     state: directory
+#     mode: "{{ item.mode }}"
+#     owner: "{{ item.owner }}"
+#     group: "{{ item.group }}"
+#   loop: "{{ httpd_etc_dirs }}"
+
+# - name: Comment out all lines in each configuration file
+#   ansible.builtin.lineinfile:
+#     path: "{{ item.path }}"
+#     regex: '^(?!#)(.*)$'
+#     line: '# \1'
+#     backrefs: true
+#   loop: "{{ httpd_default_conf_files }}"
+#   notify: "Restart apache"
+
+- name: "Find files and directories in httpd_server_root"
+  ansible.builtin.find:
+    paths: "{{ httpd_server_root }}"
+    recurse: true
+  register: _etc_found
+
+- name: "Set permissions on directories"
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: "root"
+    group: "{{ httpd_group }}"
+    mode: '0750'
+  loop: "{{ _etc_found.files + [{'path': httpd_server_root, 'isdir': true}] }}"
+  when: item.isdir and _etc_found.matched > 0
+
+- name: "Set permissions on files"
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: "root"
+    group: "{{ httpd_group }}"
+    mode: '0640'
+  loop: "{{ _etc_found.files }}"
+  when: not item.isdir and _etc_found.matched > 0
+
 - name: "Configure httpd service enabled and state"
   ansible.builtin.service:
     name: "{{ httpd_service_name }}"
-    enabled: "{{ httpd_enabled }}"
-    state: "{{ httpd_state }}"
+    enabled: "{{ httpd_service_enabled }}"
+    state: "{{ httpd_service_state }}"

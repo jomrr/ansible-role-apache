@@ -5,6 +5,26 @@
 httpd_packages:
   - apache
 
+httpd_server_root: /etc/httpd
+httpd_config_file: "{{ httpd_server_root }}/conf/httpd.conf"
+httpd_mime_file: "{{ httpd_server_root }}/conf/mime.types"
+
+httpd_distribution_config_files:
+  - "{{ httpd_server_root }}/conf/extra/httpd-mpm.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-default.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-autoindex.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-dav.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-default.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-info.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-languages.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-manual.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-mpm.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-multilang-errordoc.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-ssl.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-userdir.conf"
+  - "{{ httpd_server_root }}/conf/extra/httpd-vhosts.conf"
+  - "{{ httpd_server_root }}/conf/extra/proxy-html.conf"
+
 httpd_service_name: httpd
 
 httpd_user: http

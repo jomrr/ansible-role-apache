@@ -1,0 +1,9 @@
+# {{ httpd_conf_file }}
+# Managed by ansible role jomrr.httpd
+
+# Never change this block
+<Directory />
+  AllowOverride None
+  Require all denied
+  Options -Indexes -FollowSymLinks -SymLinksifOwnerMatch -ExecCGI -MultiViews
+</Directory>

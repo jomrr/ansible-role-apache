@@ -2,5 +2,89 @@
 # file: defaults/main.yml
 # desc: Default Apache server configuration
 
-httpd_enabled: true
-httpd_state: started
+# --- httpd role ---------------------------------------------------------------
+httpd_sebools:
+  httpd_anon_write: 1
+  httpd_builtin_scriping: 0
+  httpd_can_check_spam: 0
+  httpd_can_connect_ftp: 0
+  httpd_can_connect_ldap: 0
+  httpd_can_connect_mythtv: 0
+  httpd_can_connect_zabbix: 0
+  httpd_can_manage_courier_spool: 0
+  httpd_can_network_connect: 1
+  httpd_can_network_connect_cobbler: 0
+  httpd_can_network_connect_db: 1
+  httpd_can_network_memcache: 0
+  httpd_can_network_redis: 0
+  httpd_can_network_relay: 0
+  httpd_can_sendmail: 0
+  httpd_dbus_avahi: 0
+  httpd_dbus_sssd: 0
+  httpd_dontaudit_search_dirs: 0
+  httpd_enable_cgi: 0
+  httpd_enable_ftp_server: 0
+  httpd_enable_homedirs: 0
+  httpd_execmem: 0
+  httpd_graceful_shutdown: 0
+  httpd_manage_ipa: 0
+  httpd_mod_auth_ntlm_winbind: 0
+  httpd_mod_auth_pam: 0
+  httpd_read_user_content: 0
+  httpd_run_ipa: 0
+  httpd_run_preupgrade: 0
+  httpd_run_stickshift: 0
+  httpd_serve_cobbler_files: 0
+  httpd_setrlimit: 0
+  httpd_ssi_exec: 0
+  httpd_sys_script_anon_write: 0
+  httpd_tmp_exec: 0
+  httpd_tty_comm: 0
+  httpd_unified: 0
+  httpd_use_cifs: 0
+  httpd_use_fusefs: 0
+  httpd_use_gpg: 0
+  httpd_use_nfs: 0
+  httpd_use_opencryptoki: 0
+  httpd_use_openstack: 0
+  httpd_use_sasl: 0
+  httpd_verify_dns: 0
+
+httpd_service_enabled: true
+httpd_service_state: started
+
+# --- httpd main configuration -------------------------------------------------
+httpd_directory_index: index.html
+httpd_document_root: /var/www/html
+httpd_keeopalive: "On"
+httpd_keepalive_timeout: 5
+httpd_limit_request_body: 512000
+httpd_listen: 80
+httpd_max_keepalive_requests: 100
+httpd_server_admin: "root@localhost"
+httpd_server_name: "{{ ansible_fqdn }}:80"
+httpd_server_signature: "Off"
+httpd_server_tokens: "Prod"
+httpd_timeout: 60
+httpd_trace_enable: "Off"
+
+# --- httpd modules ------------------------------------------------------------
+httpd_module_packages: []
+# Fedora
+# - python3-mod_wsgi
+# - mod_evasive
+# - mod_security
+# - mod_security_crs
+# Debian
+# - libapache2-mod-evasive
+# - libapache2-mod-security2
+# - libapache2-mod-wsgi-py3
+httpd_modules_enabled:
+  - authz_core
+  - dir
+  - log_config
+  - mime
+  - mpm_event
+  - rewrite
+  - ssl
+  - unixd
