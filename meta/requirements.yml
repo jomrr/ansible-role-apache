@@ -1,5 +1,5 @@
 ---
-# name: jomrr.httpd
+# role: jomrr.httpd
 # file: meta/requirements.yml
 
 - name: community.general

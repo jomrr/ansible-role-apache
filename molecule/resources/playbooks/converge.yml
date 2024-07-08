@@ -1,8 +1,8 @@
-# role: jomrr.apache
+# role: jomrr.httpd
 # file: molecule/resources/playbooks/converge.yml
 # code: language=ansible-jinja
 
-- name: "PLAYBOOK | Converge | apache"
+- name: "PLAYBOOK | Converge | httpd"
   hosts: all
   become: true
   gather_facts: true

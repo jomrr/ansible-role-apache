@@ -1,5 +1,5 @@
 ---
-# name: jomrr.ansible-role-httpd
+# role: jomrr.httpd
 # file: molecule/all/molecule.yml
 
 scenario:
@@ -25,49 +25,49 @@ provisioner:
 verifier:
   name: ansible
 platforms:
-  - name: almalinux-latest-apache
+  - name: almalinux-latest-httpd
     image: "docker.io/jomrr/molecule-almalinux:latest"
     pre_build_image: true
     entrypoint: null
     command: null
     systemd: true
-  - name: alpine-latest-apache
+  - name: alpine-latest-httpd
     image: "docker.io/jomrr/molecule-alpine:latest"
     pre_build_image: true
     entrypoint: null
     command: null
     systemd: true
-  - name: archlinux-latest-apache
+  - name: archlinux-latest-httpd
     image: "docker.io/jomrr/molecule-archlinux:latest"
     pre_build_image: true
     entrypoint: null
     command: null
     systemd: true
-  - name: debian-latest-apache
+  - name: debian-latest-httpd
     image: "docker.io/jomrr/molecule-debian:latest"
     pre_build_image: true
     entrypoint: null
     command: null
     systemd: true
-  - name: fedora-latest-apache
+  - name: fedora-latest-httpd
     image: "docker.io/jomrr/molecule-fedora:latest"
     pre_build_image: true
     entrypoint: null
     command: null
     systemd: true
-  - name: opensuse-leap-latest-apache
+  - name: opensuse-leap-latest-httpd
     image: "docker.io/jomrr/molecule-opensuse-leap:latest"
     pre_build_image: true
     entrypoint: null
     command: null
     systemd: true
-  - name: opensuse-tumbleweed-latest-apache
+  - name: opensuse-tumbleweed-latest-httpd
     image: "docker.io/jomrr/molecule-opensuse-tumbleweed:latest"
     pre_build_image: true
     entrypoint: null
     command: null
     systemd: true
-  - name: ubuntu-latest-apache
+  - name: ubuntu-latest-httpd
     image: "docker.io/jomrr/molecule-ubuntu:latest"
     pre_build_image: true
     entrypoint: null

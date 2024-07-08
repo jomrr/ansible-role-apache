@@ -1,5 +1,5 @@
 ---
-# name: jomrr.ansible-role-httpd
+# role: jomrr.httpd
 # file: molecule/default/molecule.yml
 
 scenario:
@@ -25,7 +25,7 @@ provisioner:
 verifier:
   name: ansible
 platforms:
-  - name: apache
+  - name: httpd
     image: docker.io/${uns:-jomrr}/molecule-${img:-fedora}:${tag:-latest}
     pre_build_image: true
     entrypoint: null

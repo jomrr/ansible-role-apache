@@ -1,5 +1,5 @@
 ---
-# name: jomrr.apache
+# role: jomrr.httpd
 # file: meta/main.yml
 
 galaxy_info:
